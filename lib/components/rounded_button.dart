@@ -29,7 +29,7 @@ class RoundedButton extends StatelessWidget {
           },
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-            child: Text(text),
+            child: Text(text,style: TextStyle(fontSize: 30,),),
           ),
           style: TextButton.styleFrom(
             backgroundColor: color,
