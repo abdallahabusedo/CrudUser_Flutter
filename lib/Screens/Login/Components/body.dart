@@ -6,6 +6,7 @@ import 'package:flutterapp/Screens/Login/Components/background.dart';
 import 'package:flutterapp/Screens/Login/Components/have_an_account_check.dart';
 import 'package:flutterapp/Screens/Login/Components/rounded_text_field.dart';
 import 'package:flutterapp/Screens/SignUP/signup.dart';
+import 'package:flutterapp/Screens/wrapper.dart';
 import 'package:flutterapp/Services/auth.dart';
 import 'package:flutterapp/components/rounded_button.dart';
 import 'package:flutterapp/constants.dart';
@@ -38,6 +39,7 @@ class LoginBackground extends StatelessWidget {
             ),
             SizedBox(height: size.height * 0.03),
             RoundedTextField(
+              validateor:(val)=> val!.isEmpty ? "enter an email": null,
               onChanged: (value) {},
               hintText: "Email",
               textIcon: Icon(
@@ -46,6 +48,7 @@ class LoginBackground extends StatelessWidget {
               ),
             ),
             RoundededPasswordField(
+              validateor: (val)=> val!.length < 6 ? "enter an valid password": null ,
               onChanged: (value) {},
             ),
             RoundedButton(
@@ -62,7 +65,7 @@ class LoginBackground extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                     builder: (context) {
-                  return Home();
+                  return Wrapper();
                 },
                 ));
               }

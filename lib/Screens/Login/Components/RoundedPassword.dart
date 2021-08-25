@@ -5,16 +5,17 @@ import '../../../constants.dart';
 
 class RoundededPasswordField extends StatelessWidget {
   final ValueChanged<String> onChanged;
-
+  final Function validateor;
   const RoundededPasswordField({
     Key? key,
-    required this.onChanged,
+    required this.onChanged, required this.validateor,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFieldContainer(
-      child: TextField(
+      child: TextFormField(
+        validator: (val)=> validateor(val),
         onChanged: onChanged,
         obscureText: true,
         decoration: InputDecoration(
